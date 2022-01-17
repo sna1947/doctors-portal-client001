@@ -45,7 +45,7 @@ setLoginData(newLoginData);
                             variant="standard" />
                             
                             <Button sx={{width:'75%',mt:2}} type='submit' variant='contained'>Login</Button>
-                            <NavLink style={{textDecoration:'none'}} to='registar'><Button variant="text">New user? Please Register!!</Button></NavLink>
+                            <NavLink style={{textDecoration:'none'}} to='/register'><Button variant="text">New user? Please Register!!</Button></NavLink>
                     </form>
                 </Grid>
 
