@@ -5,6 +5,7 @@
 4. Svg icon(MeterialIcon): npm install @mui/icons-material
 5. mui lab for date picker:npm install @mui/lab  &  npm install @mui/material
 6. date-fns: npm install date-fns
+7. firebase
 
 # Font:------------------------------------------
    Roboto Font from Meterial ui

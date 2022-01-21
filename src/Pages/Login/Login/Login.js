@@ -1,6 +1,6 @@
 import { Alert, Button, CircularProgress, Container, Grid, TextField, Typography } from '@mui/material';
 import React, { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import useAuth from '../../../Hooks/useAuth';
 import login from '../../../images/login.png';
 
@@ -8,7 +8,10 @@ import login from '../../../images/login.png';
 const Login = () => {
 
 const [logingData, setLoginData] = useState({});
-const {user,authError,loginUser,isLoding}= useAuth();
+const {user,authError,loginUser,isLoding,signInWithGoogle}= useAuth();
+
+const location = useLocation();
+const navigate = useNavigate();
 
 const handelOnchange = e =>{
 const field = e.target.name;
@@ -20,9 +23,14 @@ setLoginData(newLoginData);
 // console.log(field,value);
 }
     const handelFormSubmit = e =>{
-        loginUser(logingData.email, logingData.password)
+        loginUser(logingData.email, logingData.password, location, navigate)
         e.preventDefault();
+    };
+
+    const handleGoogleSignIn =()=>{
+        signInWithGoogle(location, navigate)
     }
+
 
     return (
         <Container>
@@ -54,6 +62,8 @@ setLoginData(newLoginData);
                 {user?.email && <Alert severity="success">user successfully logedin!</Alert>}
                 {authError && <Alert severity="error"> {authError} </Alert>}
                     </form>
+                    <p>--------------------------------------------------</p>
+                    <Button onClick={handleGoogleSignIn} variant="contained">Google SignIn</Button>
                 </Grid>
 
                 <Grid item xs={12} md={6}>

@@ -28,10 +28,15 @@ const Navigation = () => {
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             DOCTORS-PORTAL
           </Typography>
-
-          <NavLink style={{textDecoration:'none', backgroundColor:'#ffff8d',borderRadius:10,margin:3}} to='/home'><Button color="inherit">Home</Button></NavLink>
           
-         <Link style={{textDecoration:'none', backgroundColor:'#ffff8d',borderRadius:10}} to ='/appointment'><Button color="inherit">Appointment</Button></Link>
+          <NavLink style={({isActive})=>{return {color:isActive?'red':'',textDecoration:'none', backgroundColor:'#ffff8d',borderRadius:10,margin:3 } }} 
+         to='/home'><Button color="inherit">Home</Button></NavLink>
+
+          {/* <NavLink style={{textDecoration:'none', backgroundColor:'#ffff8d',borderRadius:10,margin:3}} to='/home'><Button color="inherit">Home</Button></NavLink> */}
+          
+         <NavLink style={({isActive})=>{return {color:isActive?'red':'',textDecoration:'none', backgroundColor:'#ffff8d',borderRadius:10,margin:3} }} to ='/appointment'><Button color="inherit">Appointment</Button></NavLink>
+
+         {/* <Link style={{textDecoration:'none', backgroundColor:'#ffff8d',borderRadius:10}} to ='/appointment'><Button color="inherit">Appointment</Button></Link> */}
 {
 user?.email? 
 <Button onClick={logOut} color="inherit">Logout</Button> 

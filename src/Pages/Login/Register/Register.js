@@ -7,15 +7,16 @@ import login from '../../../images/login.png';
 const Register = () => {
 
 const [registerData, setRegisterData] = useState({})
-
 const {user,authError, registerUser, isLoding}=useAuth();
 
-const handelOnchange = e =>{
+
+const handelOnBlur = e =>{
 const field = e.target.name;
 const value = e.target.value;
 
 const newRegisterData={...registerData};
 newRegisterData[field]=value;
+console.log(newRegisterData);
 setRegisterData(newRegisterData);
 console.log(field, value,newRegisterData )
 };
@@ -38,18 +39,26 @@ const handelFormSubmit = e =>{
                     <TextField
                         sx={{width:'75%', }}
                         id="standard-basic"
-                        label="Your Email"
-                        type='email'
-                        name ='email'
-                        onChange={handelOnchange}
+                        label="Your Name"
+                        type='text'
+                        name ='name'
+                        onBlur={handelOnBlur}
                         variant="standard" />
                     <TextField
                         sx={{width:'75%', my:2}}
                         id="standard-basic"
+                        label="Your Email"
+                        type='email'
+                        name ='email'
+                        onBlur={handelOnBlur}
+                        variant="standard" />
+                    <TextField
+                        sx={{width:'75%', }}
+                        id="standard-basic"
                         label="Password"
                         type='password'
                         name= 'password'
-                        onChange={handelOnchange}
+                        onBlur={handelOnBlur}
                         variant="standard" />
                     <TextField
                         sx={{width:'75%', my:2}}
@@ -57,7 +66,7 @@ const handelFormSubmit = e =>{
                         label="Re Type Your Password"
                         type='password'
                         name= 'password2'
-                        onChange={handelOnchange}
+                        onBlur={handelOnBlur}
                         variant="standard" />
                         
                         <Button sx={{width:'75%',mt:2}} type='submit' variant='contained'>Register</Button>
